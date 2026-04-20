@@ -1,201 +1,76 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Michael Mathews — Software Development Portfolio</title>
-  <style>
-    /* --- GLOBAL STYLES --- */
-    body {
-      background: radial-gradient(circle at top, #1a1a1a 0%, #0d0d0d 60%);
-      color: #f0f0f0;
-      font-family: Arial, sans-serif;
-      padding: 40px;
-      max-width: 1200px;
-      margin: auto;
-    }
+<!-- PROJECT 1 - CAPSTONE -->
+<div class="project-card">
+  <h2 class="project-title">Inventory Management Application (Capstone Project)</h2>
 
-    h1 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    p.subtitle {
-      text-align: center;
-      color: #bbb;
-      margin-bottom: 40px;
-    }
-
-    /* --- GRID LAYOUT --- */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-      gap: 40px;
-    }
-
-    /* --- PROJECT CARD (GLASS MORPHISM) --- */
-    .project-card {
-      background: rgba(20, 20, 20, 0.6);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.05);
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 25px rgba(255,255,255,0.05);
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .project-title {
-      margin: 0;
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: #fff;
-    }
-
-    /* --- VIDEO WRAPPER + HOVER EFFECT --- */
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      border-radius: 12px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .video-wrapper:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 30px rgba(255,255,255,0.08);
-    }
-
-    .video-wrapper video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* --- IMAGE ROW + HOVER EFFECT --- */
-    .image-row {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-    }
-
-    .image-row img {
-      width: 32%;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(255,255,255,0.1);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .image-row img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(255,255,255,0.15);
-    }
-
-    /* --- DESCRIPTION TEXT --- */
-    .description {
-      font-size: 1rem;
-      line-height: 1.65;
-      color: #d0d0d0;
-      letter-spacing: 0.3px;
-      font-weight: 300;
-      margin-top: 10px;
-      text-shadow: 0 0 8px rgba(255,255,255,0.05);
-    }
-    
-  </style>
-</head>
-
-<body>
-  <h1>Michael Mathews Software Development Portfolio</h1>
-  <p class="subtitle">C++ • C# • Java • Python</p>
-
-  <div class="projects-grid">
-
-    
-    <!-- PROJECT 1 -->
-    <div class="project-card">
-      <h2 class="project-title">C++ HTML Server</h2>
-
-      <div class="video-wrapper">
-        <video autoplay loop muted playsinline>
-          <source src="gifs/CPlusPlusHTMLServer.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="image-row">
-        <img src="images/CHTML1.png">
-        <img src="images/CHTML2.png">
-        <img src="images/CHTML3.png">
-      </div>
-
-      <p class="description">
-        Server built with C++ for hosting website files. Demonstration
-        shows hosting HTML form and hosted locally, but can be deployed.
-      </p>
-    </div>
-
-    <!-- PROJECT 2 -->
-    <div class="project-card">
-      <h2 class="project-title">Java Multiplayer Server</h2>
-
-      <div class="video-wrapper">
-        <video autoplay loop muted playsinline>
-          <source src="gifs/TwoDMultiPlayerClient.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="image-row">
-        <img src="images/Multi1.png">
-        <img src="images/Multi2.png">
-        <img src="images/Multi3.png">
-      </div>
-
-      <p class="description">
-        Built in Java using Swing. Connects to a custom server that I also
-        built as part of this project and hosted on DigitalOcean.
-        Supports tens of clients, real-time animation, and smooth movement.
-      </p>
-    </div>
-
-
-  <hr style="margin:60px 0; border: none; border-top: 1px solid rgba(255,255,255,0.1);">
-
-<div class="about-section" style="
-  background: rgba(20,20,20,0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.05);
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 0 25px rgba(255,255,255,0.05);
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-">
-
-  <h2 style="margin-top:0; font-size:1.6rem; color:#fff;">About Me</h2>
-
-  <p style="color:#ccc; line-height:1.6; font-size:1rem; max-width:650px; margin:0 auto 20px;">
-    I'm Michael Mathews, a software developer who is just graduating SNHU. I have years of experience
-    in the workforce and am an innovative problem solver with high attention to detail. I am easy to 
-    collaborate with, as well as a self starter.
-  </p>
-
-  <p style="color:#ccc; line-height:1.6; font-size:1rem; max-width:650px; margin:0 auto 20px;">
-    I'm currently seeking a role in software development, tools engineering, 
-    or embedded systems architecture.
-  </p>
-
-  <div style="margin-top:20px;">
-    <a href="mailto:michaeldavidmathews@gmail.com" style="color:#66aaff; text-decoration:none; font-size:1.1rem; margin-right:20px;">Email</a>
-    <a href="https://github.com/PseudoLogics" style="color:#66aaff; text-decoration:none; font-size:1.1rem; margin-right:20px;">GitHub</a>
-    <a href="https://linkedin.com/in/michael-mathews-26074213a" style="color:#66aaff; text-decoration:none; font-size:1.1rem;">LinkedIn</a>
+  <div class="video-wrapper">
+    <video autoplay loop muted playsinline>
+      <source src="gifs/inventory_demo.mp4" type="video/mp4">
+    </video>
   </div>
 
+  <div class="image-row">
+    <img src="images/inv1.png">
+    <img src="images/inv2.png">
+    <img src="images/inv3.png">
+  </div>
+
+  <p class="description">
+    This application was developed as my CS 499 capstone project and enhanced to demonstrate
+    growth across software engineering, algorithms and data structures, and database design.
+    The system allows users to manage inventory items, categories, and quantities through a 
+    modern UI with real-time search and filtering capabilities.
+  </p>
 </div>
 
+<!-- CODE REVIEW -->
+<div class="project-card">
+  <h2 class="project-title">Code Review & Enhancement Plan</h2>
 
-</body>
-</html>
+  <div class="video-wrapper">
+    <video controls>
+      <source src="videos/code_review.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <p class="description">
+    This code review analyzes the original version of the application, identifying areas
+    for improvement including inefficient data handling, lack of normalization, and UI limitations.
+    The review outlines planned enhancements and aligns them with software engineering best practices
+    and program outcomes.
+  </p>
+</div>
+
+<!-- SOFTWARE ENGINEERING ENHANCEMENT -->
+<div class="project-card">
+  <h2 class="project-title">Enhancement 1: Software Design & Engineering</h2>
+
+  <p class="description">
+    I improved the overall architecture of the application by separating concerns between the UI,
+    data handling, and business logic. The RecyclerView adapter was refactored to remove direct database
+    operations, improving maintainability and scalability. Additional error handling and validation
+    were implemented to ensure system stability and a better user experience.
+  </p>
+</div>
+
+<!-- ALGORITHMS & DATA STRUCTURES -->
+<div class="project-card">
+  <h2 class="project-title">Enhancement 2: Algorithms & Data Structures</h2>
+
+  <p class="description">
+    The application was enhanced with optimized search and filtering functionality. Efficient querying
+    techniques and indexed lookups were implemented to improve performance when handling larger datasets.
+    Data structures were refined to support faster retrieval and cleaner organization of inventory data.
+  </p>
+</div>
+
+<!-- DATABASE ENHANCEMENT -->
+<div class="project-card">
+  <h2 class="project-title">Enhancement 3: Database Design</h2>
+
+  <p class="description">
+    The database was redesigned using normalization principles, separating items and categories into
+    distinct tables and introducing relationships between them. Indexes were added to improve query
+    performance, and new fields such as location and barcode support were implemented. This enhancement
+    significantly improved data integrity, scalability, and efficiency.
+  </p>
+</div>
