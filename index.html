@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Michael Mathews — CS 499 Capstone</title>
 
 <style>
@@ -15,6 +14,15 @@
   --text: #f3f4f6;
   --muted: #c7cedb;
   --accent: #7dd3fc;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -34,14 +42,16 @@ body {
 }
 
 h1 {
-  font-size: 2.6rem;
+  font-size: 2.8rem;
   margin-bottom: 10px;
+  letter-spacing: -0.02em;
 }
 
 .subtitle {
   color: var(--muted);
   margin-bottom: 40px;
   font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 
@@ -56,22 +66,25 @@ h1 {
 }
 
 .project-title {
-  margin-bottom: 15px;
+  margin: 0 0 15px 0;
   font-size: 1.4rem;
+  line-height: 1.3;
 }
 
 .description {
   color: var(--muted);
-  line-height: 1.75;
+  line-height: 1.8;
+  margin: 0;
 }
 
 
 .video-wrapper {
   margin: 20px 0;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
   border-radius: 15px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
 }
 
 .video-wrapper iframe {
@@ -96,7 +109,6 @@ h1 {
   border: 1px solid rgba(255,255,255,0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
 
 .media-tile:hover {
   transform: translateY(-6px) scale(1.05);
@@ -131,6 +143,7 @@ h1 {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s ease;
+  padding: 20px;
 }
 
 .image-overlay.active {
@@ -152,10 +165,76 @@ h1 {
 }
 
 
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.paper-button {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: rgba(125,211,252,0.12);
+  color: var(--accent);
+  border: 1px solid rgba(125,211,252,0.25);
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.paper-button:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(125,211,252,0.2);
+  background: rgba(125,211,252,0.18);
+}
+
 .mini-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 20px;
+}
+
+.section-heading {
+  font-size: 1.8rem;
+  margin: 55px 0 20px 0;
+  letter-spacing: -0.02em;
+}
+
+.self-assessment-card {
+  padding: 30px;
+}
+
+.self-assessment-card p + p {
+  margin-top: 18px;
+}
+
+
+@media (max-width: 768px) {
+  .page-wrap {
+    padding: 40px 16px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .project-card {
+    padding: 20px;
+  }
+
+  .media-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .media-tile {
+    height: 120px;
+  }
 }
 </style>
 </head>
@@ -165,32 +244,39 @@ h1 {
 <div class="page-wrap">
 
   <h1>Inventory Management Application</h1>
-  <p class="subtitle">CS 499 Capstone • Software Engineering • Algorithms • Databases</p>
+  <p class="subtitle">
+    CS 499 Capstone • Software Engineering • Algorithms • Databases
+  </p>
 
-  <!-- MAIN PROJECT -->
+
   <div class="project-card">
     <h2 class="project-title">Capstone Artifact</h2>
 
     <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/FiYNvwiZB0c?rel=0" allowfullscreen></iframe>
+      <iframe 
+        src="https://www.youtube.com/embed/FiYNvwiZB0c?rel=0"
+        title="Code Review Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
     </div>
 
     <p class="description">
-      This project represents my final capstone artifact for the Computer Science program. The application began as a basic
-      inventory system and was enhanced to demonstrate growth across software engineering, algorithms, and database design.
-      The final version supports item management, category organization, and real-time search functionality while reflecting
-      improvements in architecture, scalability, and overall user experience.
+      This project represents my final capstone artifact for the Computer Science program. The application began
+      as a basic inventory system and was enhanced to demonstrate growth across software engineering, algorithms,
+      and database design. The final version supports item management, category organization, and real-time search
+      functionality while reflecting improvements in architecture, scalability, performance, and overall user experience.
     </p>
 
     <div class="media-grid">
-      <div class="media-tile"><img src="images/app1.png"></div>
-      <div class="media-tile"><img src="images/app2.png"></div>
-      <div class="media-tile"><img src="images/app3.png"></div>
-      <div class="media-tile"><img src="images/app4.png"></div>
-      <div class="media-tile"><img src="images/app5.png"></div>
-      <div class="media-tile"><img src="images/app6.png"></div>
-      <div class="media-tile"><img src="images/app7.png"></div>
-      <div class="media-tile"><img src="images/app8.png"></div>
+      <div class="media-tile"><img src="images/app1.png" alt="Inventory application screenshot 1"></div>
+      <div class="media-tile"><img src="images/app2.png" alt="Inventory application screenshot 2"></div>
+      <div class="media-tile"><img src="images/app3.png" alt="Inventory application screenshot 3"></div>
+      <div class="media-tile"><img src="images/app4.png" alt="Inventory application screenshot 4"></div>
+      <div class="media-tile"><img src="images/app5.png" alt="Inventory application screenshot 5"></div>
+      <div class="media-tile"><img src="images/app6.png" alt="Inventory application screenshot 6"></div>
+      <div class="media-tile"><img src="images/app7.png" alt="Inventory application screenshot 7"></div>
+      <div class="media-tile"><img src="images/app8.png" alt="Inventory application screenshot 8"></div>
     </div>
   </div>
 
@@ -200,22 +286,30 @@ h1 {
     <div class="project-card">
       <h2 class="project-title">Software Design & Engineering</h2>
       <p class="description">
-        I improved the architecture of the application by separating concerns between the user interface, business logic,
-        and database interactions. The RecyclerView adapter was refactored to remove direct database operations, improving
-        maintainability and scalability. I also implemented stronger input validation and error handling, which increased
-        reliability and created a more polished user experience. These changes demonstrate my ability to apply professional
-        software engineering practices to an existing system.
+        I improved the architecture of the application by separating concerns between the user interface, business
+        logic, and database interactions. The RecyclerView adapter was refactored to remove direct database operations,
+        which improved maintainability and reduced unnecessary coupling between components. I also implemented stronger
+        input validation and error handling to increase stability and create a smoother user experience. These changes
+        demonstrate my ability to apply professional software engineering practices to an existing system while making
+        the application more scalable and easier to enhance in the future.
       </p>
+      <a class="paper-button" href="papers/Software.pdf" target="_blank">
+        Read Full Narrative
+      </a>
     </div>
 
     <div class="project-card">
       <h2 class="project-title">Algorithms & Data Structures</h2>
       <p class="description">
-        This enhancement focused on improving how data is processed and retrieved within the application. I refined search
-        and filtering functionality to provide more efficient item lookup and smoother real-time interaction. By improving
-        the way data flows through the system, the application now performs better as the dataset grows. This demonstrates
-        my understanding of how algorithmic efficiency and data structure design impact performance and usability.
+        This enhancement focused on improving how data is processed and retrieved within the application. I refined
+        search and filtering functionality to support more efficient item lookup and smoother real-time interaction.
+        By improving the flow of data through the application and organizing it more effectively, the system now performs
+        better as the number of inventory items grows. This demonstrates my understanding of how algorithmic efficiency
+        and data structure choices directly affect usability, responsiveness, and the long-term quality of the solution.
       </p>
+      <a class="paper-button" href="papers/Algorithms.pdf" target="_blank">
+        Read Full Narrative
+      </a>
     </div>
 
     <div class="project-card">
@@ -223,18 +317,64 @@ h1 {
       <p class="description">
         The database layer was redesigned using normalization principles to separate items and categories into structured
         relational tables. Indexes were added to improve query performance, and new attributes such as location and barcode
-        support were introduced. These changes improved data integrity, reduced redundancy, and made the application more
-        scalable. This enhancement highlights my ability to design and implement efficient, real-world database solutions.
+        support were introduced to make the system more realistic and practical. These changes improved data integrity,
+        reduced redundancy, and made the application more scalable as a complete inventory solution. This enhancement
+        highlights my ability to design and implement database solutions that are both technically sound and aligned with
+        real-world requirements.
       </p>
+      <a class="paper-button" href="papers/Database.pdf" target="_blank">
+        Read Full Narrative
+      </a>
     </div>
 
+  </div>
+
+
+  <h2 class="section-heading">Professional Self-Assessment</h2>
+
+  <div class="project-card self-assessment-card">
+    <h2 class="project-title">Professional Self-Assessment</h2>
+
+    <p class="description">
+      Throughout the Computer Science program, I have developed a stronger foundation in software design, problem solving,
+      database development, and the practical application of programming concepts. My work on the Inventory Management
+      Application reflects that growth by showing how I can evaluate an existing system, identify its weaknesses, and
+      implement meaningful improvements that increase both quality and usability. This capstone project gave me the
+      opportunity to bring together multiple areas of computer science into one cohesive artifact and demonstrate the
+      progress I have made across the program.
+    </p>
+
+    <p class="description">
+      One of the most important areas of growth for me has been in software engineering and design. Through my enhancements,
+      I improved the structure of the application by separating responsibilities more clearly and reducing unnecessary coupling
+      between components. This helped me think more carefully about maintainability, scalability, and the long-term value of
+      clean architecture. I also strengthened my ability to communicate technical work in a professional way by explaining the
+      purpose of each enhancement and showing how each change aligned with program outcomes and industry expectations.
+    </p>
+
+    <p class="description">
+      I also expanded my understanding of algorithms, data structures, and efficient system design. By improving search,
+      filtering, and data flow in the application, I was able to see how small implementation choices can significantly affect
+      responsiveness and usability. In addition, redesigning the database using normalization and indexed queries gave me more
+      experience building systems that are not only functional, but also more efficient and scalable. These enhancements
+      demonstrate my ability to evaluate trade-offs and develop solutions that deliver stronger results.
+    </p>
+
+    <p class="description">
+      Overall, this ePortfolio represents both my technical development and my readiness to contribute in a professional
+      software environment. It shows my ability to analyze code, improve existing systems, communicate my work clearly,
+      and apply sound computing practices across multiple areas of development. The process of building this capstone has
+      strengthened my confidence as a developer and has given me a stronger understanding of how to create software that is
+      practical, organized, and valuable to end users.
+    </p>
+    </a>
   </div>
 
 </div>
 
 
 <div class="image-overlay" id="imageOverlay">
-  <img id="overlayImage">
+  <img id="overlayImage" alt="Expanded project screenshot">
 </div>
 
 <script>
