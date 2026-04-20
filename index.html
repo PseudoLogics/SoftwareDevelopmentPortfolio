@@ -1,321 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Michael Mathews — CS 499 Capstone</title>
+
 <style>
-  :root {
-    --bg-1: #0b1020;
-    --bg-2: #111827;
-    --panel: rgba(255, 255, 255, 0.06);
-    --panel-strong: rgba(255, 255, 255, 0.09);
-    --border: rgba(255, 255, 255, 0.1);
-    --text: #f3f4f6;
-    --muted: #c7cedb;
-    --soft: #94a3b8;
-    --accent: #7dd3fc;
-    --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-  }
+:root {
+  --bg-1: #0b1020;
+  --bg-2: #111827;
+  --panel: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.1);
+  --text: #f3f4f6;
+  --muted: #c7cedb;
+  --accent: #7dd3fc;
+}
 
-  body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: var(--text);
-    background:
-      radial-gradient(circle at top left, rgba(125, 211, 252, 0.14), transparent 26%),
-      radial-gradient(circle at top right, rgba(167, 139, 250, 0.12), transparent 22%),
-      linear-gradient(160deg, var(--bg-1) 0%, var(--bg-2) 100%);
-    min-height: 100vh;
-  }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(125,211,252,0.15), transparent 30%),
+    radial-gradient(circle at top right, rgba(167,139,250,0.12), transparent 25%),
+    linear-gradient(160deg, var(--bg-1), var(--bg-2));
+}
 
-  .page-wrap {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 56px 24px 80px;
-  }
+.page-wrap {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 20px;
+}
 
-  .hero {
-    margin-bottom: 34px;
-    padding: 28px 30px;
-    border: 1px solid var(--border);
-    background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
-    backdrop-filter: blur(14px);
-    border-radius: 24px;
-    box-shadow: var(--shadow);
-  }
+h1 {
+  font-size: 2.6rem;
+  margin-bottom: 10px;
+}
 
-  .hero h1 {
-    margin: 0 0 10px 0;
-    font-size: 2.4rem;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-  }
+.subtitle {
+  color: var(--muted);
+  margin-bottom: 40px;
+  font-size: 1.05rem;
+}
 
-  .hero p {
-    margin: 0;
-    max-width: 800px;
-    color: var(--muted);
-    font-size: 1.04rem;
-    line-height: 1.7;
-  }
 
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
-  }
+.project-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 25px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
 
-  .project-card {
-    grid-column: span 12;
-    background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
-    border: 1px solid var(--border);
-    border-radius: 22px;
-    padding: 24px;
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(14px);
-    overflow: hidden;
-  }
+.project-title {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
 
-  .project-card.featured {
-    padding: 28px;
-  }
+.description {
+  color: var(--muted);
+  line-height: 1.75;
+}
 
-  .project-title {
-    margin: 0 0 14px 0;
-    font-size: 1.45rem;
-    line-height: 1.25;
-    letter-spacing: -0.02em;
-    color: #ffffff;
-  }
 
-  .eyebrow {
-    display: inline-block;
-    margin-bottom: 12px;
-    padding: 6px 10px;
-    border-radius: 999px;
-    font-size: 0.78rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: rgba(125, 211, 252, 0.08);
-    border: 1px solid rgba(125, 211, 252, 0.18);
-  }
+.video-wrapper {
+  margin: 20px 0;
+  aspect-ratio: 16/9;
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
 
-  .description {
-    margin: 0;
-    color: var(--muted);
-    font-size: 1rem;
-    line-height: 1.78;
-  }
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 
-  .video-wrapper {
-    margin: 18px 0 20px;
-    position: relative;
-    width: 100%;
-    max-width: 880px;
-    aspect-ratio: 16 / 9;
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.08);
-    background: rgba(0,0,0,0.25);
-    box-shadow: 0 14px 30px rgba(0,0,0,0.28);
-  }
 
-  .video-wrapper video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
 
-  .media-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 14px;
-    margin-top: 20px;
-  }
+.media-tile {
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 
-  .media-tile {
-    position: relative;
-    height: 150px;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.08);
-    background: rgba(255,255,255,0.03);
-    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
-  }
 
-  .media-tile:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 24px rgba(0,0,0,0.24);
-    border-color: rgba(125, 211, 252, 0.28);
-  }
+.media-tile:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow:
+    0 0 20px rgba(125,211,252,0.5),
+    0 0 40px rgba(125,211,252,0.25);
+}
 
-  .media-tile img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-  }
+.media-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
 
-  .section-split {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 24px;
-    align-items: start;
-  }
+.media-tile:hover img {
+  transform: scale(1.08);
+}
 
-  .mini-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-  }
 
-  .mini-card {
-    grid-column: span 1;
-  }
+.image-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10,10,20,0.92);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
 
-  .mini-card h3 {
-    margin: 0 0 12px 0;
-    font-size: 1.05rem;
-    color: #fff;
-  }
+.image-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
 
-  .mini-card p {
-    margin: 0;
-    color: var(--muted);
-    line-height: 1.72;
-    font-size: 0.98rem;
-  }
+.image-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  transform: scale(0.95);
+  transition: transform 0.25s ease;
+}
 
-  .divider {
-    height: 1px;
-    margin: 12px 0 4px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent);
-    border: 0;
-  }
+.image-overlay.active img {
+  transform: scale(1);
+}
 
-  @media (max-width: 920px) {
-    .section-split {
-      grid-template-columns: 1fr;
-    }
 
-    .mini-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-      font-size: 2rem;
-    }
-  }
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
 </style>
+</head>
+
+<body>
 
 <div class="page-wrap">
-  <section class="hero">
-    <h1>Inventory Management Application</h1>
-    <p>
-      This project was enhanced as part of my CS 499 capstone to demonstrate growth in software design and engineering,
-      algorithms and data structures, and database design. The application supports item creation, editing, search,
-      category organization, and inventory tracking while showing how I improved architecture, performance, and data management
-      throughout the enhancement process.
-    </p>
-  </section>
 
-  <div class="projects-grid">
+  <h1>Inventory Management Application</h1>
+  <p class="subtitle">CS 499 Capstone • Software Engineering • Algorithms • Databases</p>
 
-    <!-- FEATURED PROJECT -->
-    <div class="project-card featured">
-      <span class="eyebrow">Capstone Artifact</span>
-      <h2 class="project-title">Inventory Management Application (Original and Enhanced)</h2>
+  <!-- MAIN PROJECT -->
+  <div class="project-card">
+    <h2 class="project-title">Capstone Artifact</h2>
 
-      <div class="section-split">
-        <div>
-          <p class="description">
-            This application began as a basic Android inventory system and was later expanded into a more complete and structured
-            capstone artifact. The enhanced version improves usability, better separates responsibilities across the application,
-            and supports more scalable data handling. Through these revisions, the project demonstrates my ability to refine an
-            existing system instead of simply building something new, which better reflects real-world software development.
-          </p>
-        </div>
-
-        <div class="video-wrapper">
-          <video autoplay loop muted playsinline>
-            <source src="gifs/inventory_demo.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-
-      <div class="media-grid">
-        <div class="media-tile"><img src="images/app1.png" alt="Inventory app screenshot 1"></div>
-        <div class="media-tile"><img src="images/app2.png" alt="Inventory app screenshot 2"></div>
-        <div class="media-tile"><img src="images/app3.png" alt="Inventory app screenshot 3"></div>
-        <div class="media-tile"><img src="images/app4.png" alt="Inventory app screenshot 4"></div>
-        <div class="media-tile"><img src="images/app5.png" alt="Inventory app screenshot 5"></div>
-        <div class="media-tile"><img src="images/app6.png" alt="Inventory app screenshot 6"></div>
-        <div class="media-tile"><img src="images/app7.png" alt="Inventory app screenshot 7"></div>
-        <div class="media-tile"><img src="images/app8.png" alt="Inventory app screenshot 8"></div>
-      </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/FiYNvwiZB0c?rel=0" allowfullscreen></iframe>
     </div>
 
-    <!-- CODE REVIEW -->
+    <p class="description">
+      This project represents my final capstone artifact for the Computer Science program. The application began as a basic
+      inventory system and was enhanced to demonstrate growth across software engineering, algorithms, and database design.
+      The final version supports item management, category organization, and real-time search functionality while reflecting
+      improvements in architecture, scalability, and overall user experience.
+    </p>
+
+    <div class="media-grid">
+      <div class="media-tile"><img src="images/app1.png"></div>
+      <div class="media-tile"><img src="images/app2.png"></div>
+      <div class="media-tile"><img src="images/app3.png"></div>
+      <div class="media-tile"><img src="images/app4.png"></div>
+      <div class="media-tile"><img src="images/app5.png"></div>
+      <div class="media-tile"><img src="images/app6.png"></div>
+      <div class="media-tile"><img src="images/app7.png"></div>
+      <div class="media-tile"><img src="images/app8.png"></div>
+    </div>
+  </div>
+
+
+  <div class="mini-grid">
+
     <div class="project-card">
-      <span class="eyebrow">Review</span>
-      <h2 class="project-title">Code Review and Enhancement Plan</h2>
-
-      <div class="video-wrapper">
-        <video controls>
-          <source src="videos/code_review.mp4" type="video/mp4">
-        </video>
-      </div>
-
+      <h2 class="project-title">Software Design & Engineering</h2>
       <p class="description">
-        The code review provides a walkthrough of the original application and identifies the areas that needed improvement before
-        enhancement work began. In that review, I focused on UI limitations, weak separation of concerns, and opportunities to
-        improve how the application stored and retrieved data. It also established a clear enhancement plan, showing how each
-        revision would connect back to the program outcomes and demonstrate measurable technical growth across the capstone.
+        I improved the architecture of the application by separating concerns between the user interface, business logic,
+        and database interactions. The RecyclerView adapter was refactored to remove direct database operations, improving
+        maintainability and scalability. I also implemented stronger input validation and error handling, which increased
+        reliability and created a more polished user experience. These changes demonstrate my ability to apply professional
+        software engineering practices to an existing system.
       </p>
     </div>
 
-    <hr class="divider">
+    <div class="project-card">
+      <h2 class="project-title">Algorithms & Data Structures</h2>
+      <p class="description">
+        This enhancement focused on improving how data is processed and retrieved within the application. I refined search
+        and filtering functionality to provide more efficient item lookup and smoother real-time interaction. By improving
+        the way data flows through the system, the application now performs better as the dataset grows. This demonstrates
+        my understanding of how algorithmic efficiency and data structure design impact performance and usability.
+      </p>
+    </div>
 
-    <!-- THREE CATEGORY CARDS -->
-    <div class="mini-grid" style="grid-column: span 12;">
-
-      <div class="project-card mini-card">
-        <span class="eyebrow">Enhancement 1</span>
-        <h3>Software Design and Engineering</h3>
-        <p>
-          For the software design and engineering enhancement, I improved the structure of the application so responsibilities were
-          more clearly divided between the interface, user interaction logic, and database operations. One important change was
-          removing direct database work from the RecyclerView adapter, which made the code easier to maintain and reduced tight
-          coupling between components. I also improved validation and error handling so the application behaves more reliably during
-          user input and item updates. These changes made the project feel less like a classroom prototype and more like a real
-          application built with maintainability and long-term growth in mind.
-        </p>
-      </div>
-
-      <div class="project-card mini-card">
-        <span class="eyebrow">Enhancement 2</span>
-        <h3>Algorithms and Data Structures</h3>
-        <p>
-          For the algorithms and data structures enhancement, I focused on improving how inventory data is searched, filtered, and
-          organized within the application. The updated version supports more efficient item lookup and cleaner handling of user
-          actions such as live search and category-based filtering. I also refined the flow of data so that retrieval is more direct
-          and easier to manage as the number of items grows. This enhancement shows my understanding of how design decisions around
-          data structures and query patterns can directly affect application responsiveness, scalability, and the overall user
-          experience.
-        </p>
-      </div>
-
-      <div class="project-card mini-card">
-        <span class="eyebrow">Enhancement 3</span>
-        <h3>Database Design</h3>
-        <p>
-          For the database enhancement, I redesigned the original storage model into a more normalized structure by separating items
-          and categories into related tables rather than keeping everything in a flatter format. I added indexes to support faster
-          searching and retrieval, and I introduced additional fields such as location and barcode support to better reflect real
-          inventory use cases. These revisions improved both data integrity and flexibility, while also making the application more
-          realistic from a business and technical perspective. This category highlights my ability to build database solutions that
-          are not only functional, but also more efficient, scalable, and aligned with good design practices.
-        </p>
-      </div>
-
+    <div class="project-card">
+      <h2 class="project-title">Database Design</h2>
+      <p class="description">
+        The database layer was redesigned using normalization principles to separate items and categories into structured
+        relational tables. Indexes were added to improve query performance, and new attributes such as location and barcode
+        support were introduced. These changes improved data integrity, reduced redundancy, and made the application more
+        scalable. This enhancement highlights my ability to design and implement efficient, real-world database solutions.
+      </p>
     </div>
 
   </div>
+
 </div>
+
+
+<div class="image-overlay" id="imageOverlay">
+  <img id="overlayImage">
+</div>
+
+<script>
+const overlay = document.getElementById("imageOverlay");
+const overlayImg = document.getElementById("overlayImage");
+
+document.querySelectorAll(".media-tile img").forEach(img => {
+  img.addEventListener("click", () => {
+    overlayImg.src = img.src;
+    overlay.classList.add("active");
+  });
+});
+
+overlay.addEventListener("click", () => {
+  overlay.classList.remove("active");
+});
+</script>
+
+</body>
+</html>
